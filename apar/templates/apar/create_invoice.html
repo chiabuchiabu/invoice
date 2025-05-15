@@ -1,0 +1,29 @@
+{% extends "apar/layout.html" %}
+
+{% block title %}新增帳款{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-4">新增帳款</h1>
+    <a href="{% url 'index' %}">
+        <img src="https://resize-image.vocus.cc/resize?compression=6&norotation=true&url=https%3A%2F%2Fimages.vocus.cc%2F46f46475-7667-4525-ad19-36a28e6511dd.png&width=740&sign=v25qveCdmUMUATitvNuI6MYv2mCs2-RQOUj6DWc1qZM" alt="coin" width="50" height="50" class="rounded-circle">
+    </a>
+</div>
+<div>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}    
+</div>
+<div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">送出</button>
+    <a href="{% url 'invoice_list' %}" class="btn btn-secondary">發票清單</a>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "apar/layout.html" %}
+
+{% block title %}新增合作夥伴{% endblock %}
+
+{% block content %}
+
+<div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}        
+</div>
+
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-4">新增合作夥伴</h1>    
+    <a href="{% url 'index' %}">
+        <img src="https://resize-image.vocus.cc/resize?compression=6&norotation=true&url=https%3A%2F%2Fimages.vocus.cc%2F46f46475-7667-4525-ad19-36a28e6511dd.png&width=740&sign=v25qveCdmUMUATitvNuI6MYv2mCs2-RQOUj6DWc1qZM" alt="coin" width="50" height="50" class="rounded-circle">
+    </a>
+</div>    
+<form action="{% url 'partner_list' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="partner" placeholder="新增廠商" autofocus required>
+    <input type="text" name="partner_number" pattern="\d{8}" placeholder="廠商統編" >
+    <input type="email" name="partner_email" placeholder="廠商信箱" >
+    <input type="tel" name="partner_phone" placeholder="廠商電話">
+    
+    <button type="submit" class="btn btn-primary">新增廠商</button>
+    
+
+</form>
+{% endblock %}
