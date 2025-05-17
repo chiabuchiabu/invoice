@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-tcs&kmx%^5l#9_f7pwp=+^$+)e+*fq4cvj(=%%xbur49$mbzxx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chiaia.pythonanywhere.com']
 
 
 # Application definition
